@@ -21,11 +21,18 @@ class UserController extends Controller
     public function show($id)
     {
         $users = [
-            ['id' => 1, 'name' => 'Jhon Doe', 'age' => 20, 'gender' => 'Male'],
+            ['id' => 1, 'name' => 'John Doe', 'age' => 20, 'gender' => 'Male'],
             ['id' => 2, 'name' => 'Jane Doe', 'age' => 18, 'gender' => 'Female'],
         ];
 
-        return view('admin.users.show');
+        foreach ($users as $user) {
+            if ($user['id'] == $id) {
+                $userFound = $user;
+                break; 
+            }
+        }
+
+        return view('admin.users.show', compact('userFound'));
     }
 
     //showing create user form
