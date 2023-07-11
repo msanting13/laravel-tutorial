@@ -24,8 +24,15 @@ class UserController extends Controller
             ['id' => 1, 'name' => 'Jhon Doe', 'age' => 20, 'gender' => 'Male'],
             ['id' => 2, 'name' => 'Jane Doe', 'age' => 18, 'gender' => 'Female'],
         ];
+        $user = null;
+        foreach($users as $user) {
+            if($user['id'] == $id) {
+                $user = $user;
+                break;
+            }
+        }
 
-        return view('admin.users.show');
+        return view('admin.users.show', compact('user'));
     }
 
     //showing create user form
