@@ -42,17 +42,17 @@ class UserController extends Controller
     //showing edit user form
     public function edit()
     {
-        //code
+        
     }
 
     //storing users to db
     public function store()
     {
-        //code
+        
     }
 
     public function update()
     {
-        //code
+        
     }
 }
