@@ -25,13 +25,11 @@ class UserController extends Controller
             ['id' => 2, 'name' => 'Jane Doe', 'age' => 18, 'gender' => 'Female'],
         ];
 
-        foreach ($users as $user) {
-            if ($user['id'] == $id) {
-                $userFound = $user;
-                break; 
-            }
-        }
-
+        $userFound = array_filter($users, function ($user) use ($id) {
+            return $user['id'] == $id;
+        });
+        
+        $userFound = reset($userFound);
         return view('admin.users.show', compact('userFound'));
     }
 
@@ -44,17 +42,17 @@ class UserController extends Controller
     //showing edit user form
     public function edit()
     {
-
+        //code
     }
 
     //storing users to db
     public function store()
     {
-
+        //code
     }
 
     public function update()
     {
-
+        //code
     }
 }
